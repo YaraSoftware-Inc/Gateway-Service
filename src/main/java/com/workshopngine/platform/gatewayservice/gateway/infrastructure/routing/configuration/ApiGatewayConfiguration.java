@@ -44,6 +44,13 @@ public class ApiGatewayConfiguration {
 
                 .route(r -> r.path("/staff-management/v3/api-docs", "/staff-management/v3/api-docs/**")
                         .uri("lb://staff-management"))
+
+                // Route to the profile-management service
+                .route(r -> r.path("/profiles/**")
+                        .uri("lb://profile-management"))
+
+                .route(r -> r.path("/profile-management/v3/api-docs", "/profile-management/v3/api-docs/**")
+                        .uri("lb://profile-management"))
                 .build();
     }
 }
